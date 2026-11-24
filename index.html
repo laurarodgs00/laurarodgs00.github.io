@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Laura Rodrigues</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;700;800;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Mix : rayures bleu/crème + gros titres rouges (marketing portfolio) × cartes beige/sauge et titres minuscules avec point (Studio Agatho) */
+  --cream: #f7f0e6;
+  --stripe: #bdd5ec;
+  --red: #a4231b;
+  --ink: #1d2433;
+  --sage: #d4dddc;
+  --sand: #e4d4b9;
+  --brown: #3b2418;
+  --pink: #f2a7cc;
+  --lime: #dfe98a;
+  --coral: #ef7b62;
+  --f-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --f-body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+  --f-script: "Pinyon Script", "Snell Roundhand", cursive;
+  --radius: 28px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0; background: var(--cream); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+
+/* ---------- nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--cream) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+.nav .brand { font-weight: 900; letter-spacing: -.01em; text-decoration: none; font-size: 18px; }
+.nav .brand span { color: var(--red); }
+.nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-weight: 700; font-size: 15px; }
+.nav ul a { text-decoration: none; }
+.nav ul a:hover { color: var(--red); }
+.nav .cta { background: var(--red); color: var(--cream); padding: 8px 16px; border-radius: 999px; }
+.nav .cta:hover { color: var(--cream) !important; background: var(--ink); }
+@media (max-width: 860px) { .nav .brand { display: none; } .nav .wrap { justify-content: center; } .nav ul { gap: 14px; font-size: 14px; overflow-x: auto; white-space: nowrap; } }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative; overflow: hidden;
+  background: repeating-linear-gradient(90deg, var(--stripe) 0 56px, var(--cream) 56px 112px);
+  padding: clamp(40px, 7vw, 90px) 0 clamp(48px, 7vw, 90px);
+}
+.hero .card {
+  position: relative; background: var(--sand); border-radius: var(--radius);
+  padding: clamp(24px, 4vw, 52px); box-shadow: 0 20px 50px -30px rgba(59,36,24,.55);
+}
+.hero .top { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 20px; font-weight: 800; line-height: 1.15; font-size: clamp(15px, 1.6vw, 20px); }
+.hero .top .name { font-size: clamp(22px, 2.6vw, 32px); font-weight: 900; letter-spacing: -.02em; }
+.hero .top .contact { text-align: right; }
+.hero .top .contact { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.hero .top .contact .mail { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+.btn-li { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--cream); text-decoration: none; padding: 8px 16px; border-radius: 999px; font-size: 15px; }
+.btn-li:hover { background: var(--red); }
+.btn-li svg { width: 16px; height: 16px; fill: currentColor; }
+.copy { font: inherit; font-size: 13px; font-weight: 800; border: 2px solid var(--ink); background: transparent; color: var(--ink); border-radius: 999px; padding: 3px 12px; cursor: pointer; }
+.copy:hover { background: var(--lime); }
+.copy.ok { background: var(--lime); }
+@media (max-width: 760px) { .hero .top { grid-template-columns: 1fr; } .hero .top .contact { text-align: left; align-items: flex-start; } .hero .top .contact .mail { justify-content: flex-start; } }
+.hero-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: 24px; align-items: end; }
+@media (max-width: 900px) { .hero-body { grid-template-columns: 1fr; } }
+.side { position: relative; display: flex; flex-direction: column; gap: 12px; padding-top: 86px; }
+.note { position: relative; z-index: 1; display: flex; gap: 12px; align-items: baseline; text-decoration: none; font-weight: 800; line-height: 1.2; padding: 14px 18px; border-radius: 8px; box-shadow: 0 10px 18px -12px rgba(59,36,24,.6); transition: transform .2s; }
+.note span { font-family: var(--f-display); font-weight: 400; color: var(--red); font-size: 22px; }
+.note.n1 { background: var(--pink); transform: rotate(-2deg); }
+.note.n2 { background: var(--lime); transform: rotate(1.5deg); margin-left: 14px; }
+.note.n3 { background: var(--stripe); transform: rotate(-1deg); }
+.note.n4 { background: var(--ink); color: var(--cream); justify-content: center; border-radius: 999px; transform: rotate(1deg); margin-left: 24px; }
+.note:hover { transform: rotate(0) scale(1.03); }
+.stamp { position: absolute; top: 6px; z-index: 0; right: -6px; width: 110px; height: 110px; border-radius: 50%; background: var(--red); color: var(--cream); display: grid; place-items: center; transform: rotate(-12deg); box-shadow: 0 10px 20px -12px rgba(0,0,0,.5); }
+.stamp svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.stamp text { fill: var(--cream); font-family: var(--f-body); font-weight: 900; font-size: 9.5px; letter-spacing: .04em; }
+.stamp > span { font-size: 26px; }
+@media (prefers-reduced-motion: no-preference) { .stamp svg { animation: spin 18s linear infinite; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 900px) { .side { padding-top: 0; max-width: 420px; } .stamp { display: none; } }
+.hero h1 {
+  font-family: var(--f-display); font-weight: 400; color: var(--red);
+  font-size: clamp(76px, 11.5vw, 150px); line-height: .9; letter-spacing: -.01em;
+  margin-top: clamp(10px, 2vw, 24px);
+}
+.hero .sign { font-family: var(--f-script); font-size: clamp(34px, 5vw, 60px); line-height: 1; margin: 4px 0 0 clamp(8px, 3vw, 40px); }
+.hero .pitch { margin-top: 28px; max-width: 34ch; font-size: clamp(19px, 2vw, 24px); font-weight: 700; line-height: 1.35; }
+.hero .pitch em { font-style: normal; background: var(--lime); padding: 0 .2em; border-radius: 4px; }
+.hero .for { margin-top: 10px; font-size: 15px; opacity: .8; }
+.folder { position: absolute; width: 74px; height: 54px; border-radius: 6px 8px 8px 8px; }
+.folder::before { content: ""; position: absolute; top: -10px; left: 0; width: 34px; height: 14px; background: inherit; border-radius: 6px 6px 0 0; filter: brightness(.94); }
+.folder.f1 { background: var(--lime); top: 26px; right: 22%; transform: rotate(-8deg); }
+.folder.f2 { background: var(--pink); top: 70px; right: 12%; transform: rotate(6deg); }
+.folder.f3 { background: var(--coral); bottom: 40px; right: 6%; transform: rotate(-4deg); }
+@media (max-width: 760px) { .folder.f1, .folder.f2 { display: none; } }
+
+/* ---------- section titles ---------- */
+section { padding: clamp(56px, 8vw, 100px) 0; }
+.st { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 36px; }
+.st h2 { font-weight: 900; font-size: clamp(42px, 6vw, 76px); letter-spacing: -.035em; line-height: 1; }
+.st h2 b { color: var(--red); }
+.st p { margin: 0; font-family: var(--f-script); font-size: clamp(24px, 3vw, 34px); line-height: 1.1; }
+
+/* ---------- à propos ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; background: var(--sage); border-radius: var(--radius); padding: clamp(24px, 4vw, 52px); }
+@media (max-width: 620px) { .about { grid-template-columns: 1fr; } }
+.polaroid { position: relative; background: #fff; padding: 14px 14px 52px; transform: rotate(-2.5deg); box-shadow: 0 16px 30px -18px rgba(0,0,0,.45); max-width: 320px; }
+.polaroid .ph { aspect-ratio: 4/5; overflow: hidden; }
+.polaroid .ph img { width: 100%; height: 100%; object-fit: cover; }
+.polaroid figcaption { position: absolute; bottom: 10px; left: 0; right: 0; text-align: center; font-family: var(--f-script); font-size: 30px; }
+.clip { position: absolute; top: -18px; left: 50%; width: 22px; height: 52px; border: 4px solid #8a8f96; border-radius: 12px; transform: translateX(-50%) rotate(8deg); }
+.about-txt { display: grid; gap: 22px; max-width: 62ch; }
+.about-txt h3 { font-size: 14px; text-transform: uppercase; letter-spacing: .12em; color: var(--red); font-weight: 900; margin-bottom: 4px; }
+.about-txt p { margin: 0; }
+.about-txt .co { color: var(--red); font-weight: 800; }
+
+/* ---------- expertises ---------- */
+.exp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 900px) { .exp { grid-template-columns: 1fr; } }
+.exp article { border-radius: var(--radius); padding: 30px 28px 32px; display: flex; flex-direction: column; gap: 14px; }
+.exp article:nth-child(1) { background: var(--sand); }
+.exp article:nth-child(2) { background: var(--stripe); }
+.exp article:nth-child(3) { background: var(--sage); }
+.exp .n { font-family: var(--f-display); font-size: 54px; line-height: 1; color: var(--red); }
+.exp h3 { font-size: 26px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
+.exp p { margin: 0; }
+.exp ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.exp li { font-size: 14px; font-weight: 700; background: color-mix(in srgb, #fff 60%, transparent); padding: 4px 12px; border-radius: 999px; }
+
+/* ---------- réalisations ---------- */
+.case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(24px, 4vw, 56px); border-radius: var(--radius); padding: clamp(24px, 4vw, 48px); margin-bottom: 24px; }
+.case:nth-of-type(odd) { background: var(--sage); }
+.case:nth-of-type(even) { background: var(--sand); }
+@media (max-width: 860px) { .case { grid-template-columns: 1fr; } }
+.case h3 { font-weight: 900; font-size: clamp(34px, 4.4vw, 54px); letter-spacing: -.035em; line-height: 1; }
+.case .meta { margin-top: 18px; font-size: 14px; font-weight: 700; line-height: 1.5; }
+.case .meta span { display: block; }
+.case .tag { display: inline-block; margin-top: 18px; font-family: var(--f-display); font-size: 20px; color: var(--cream); background: var(--red); padding: 4px 14px; border-radius: 6px; letter-spacing: .02em; }
+.items { display: grid; gap: 14px; }
+.item { background: color-mix(in srgb, #fff 55%, transparent); border-radius: 18px; padding: 16px 20px; }
+.item b { display: block; font-size: 17px; line-height: 1.3; margin-bottom: 2px; }
+.item p { margin: 0; font-size: 15.5px; }
+.digital { align-items: center; row-gap: clamp(28px, 4vw, 44px); }
+.digital .d-txt .items { margin-top: 22px; }
+.phones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2.5vw, 28px); max-width: 430px; width: 100%; justify-self: center; }
+.digital figure { margin: 0; }
+.digital img { border-radius: 16px; box-shadow: 0 14px 28px -18px rgba(0,0,0,.55); background: #fff; width: 100%; }
+.digital figcaption { font-family: var(--f-script); font-size: 28px; text-align: center; margin-top: 6px; line-height: 1.1; }
+.cal-txt { display: grid; gap: 14px; }
+.digital .cal { max-width: 82%; justify-self: center; }
+@media (max-width: 860px) { .digital .cal { max-width: 100%; } }
+@media (max-width: 860px) { .digital .cal { order: 4; } }
+
+/* ---------- chiffres ---------- */
+.stats { background: var(--brown); color: var(--cream); position: relative; overflow: hidden; }
+.stats::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 14px; background: radial-gradient(circle at 10px 0, transparent 9px, var(--cream) 10px) 0 0 / 20px 14px repeat-x; opacity: .9; }
+.stats .st h2 { color: var(--cream); }
+.stats .st h2 b { color: var(--pink); }
+.grid-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 900px) { .grid-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .grid-stats { grid-template-columns: 1fr; } }
+.grid-stats div { background: color-mix(in srgb, var(--cream) 8%, transparent); border: 1.5px solid color-mix(in srgb, var(--cream) 22%, transparent); border-radius: 22px; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 6px; }
+.grid-stats .k { font-size: 12px !important; text-transform: uppercase; letter-spacing: .14em; font-weight: 900; color: var(--pink); opacity: 1 !important; margin: 0 !important; }
+.grid-stats b { font-size: 18px; line-height: 1.2; }
+.grid-stats strong { display: block; font-family: var(--f-display); font-weight: 400; font-size: clamp(48px, 6.4vw, 84px); line-height: 1; font-variant-numeric: tabular-nums; }
+.grid-stats strong small { font-size: .5em; }
+.grid-stats span { display: block; font-size: 14.5px; opacity: .8; line-height: 1.45; }
+
+/* ---------- formules ---------- */
+.offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+@media (max-width: 900px) { .offers { grid-template-columns: 1fr; } }
+.offer { position: relative; background: #fff; border-radius: var(--radius); padding: 30px 28px; display: flex; flex-direction: column; gap: 14px; border: 2px solid var(--ink); }
+.offer.hl { background: var(--red); color: var(--cream); border-color: var(--red); }
+.offer .lbl { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; font-weight: 900; opacity: .7; }
+.offer h3 { font-weight: 900; font-size: 28px; letter-spacing: -.02em; line-height: 1.05; }
+.offer p { margin: 0; }
+.offer ul { margin: 0; padding-left: 20px; }
+.offer .price { margin-top: auto; padding-top: 16px; border-top: 1.5px dashed currentColor; font-weight: 700; }
+.offer .price b { font-family: var(--f-display); font-weight: 400; font-size: 36px; }
+.offer .badge { position: absolute; top: -14px; right: 22px; background: var(--lime); color: var(--ink); font-weight: 900; font-size: 13px; padding: 4px 12px; border-radius: 999px; }
+.carte { margin-top: 28px; background: var(--stripe); border-radius: var(--radius); padding: clamp(24px, 4vw, 40px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 28px; align-items: center; }
+@media (max-width: 860px) { .carte { grid-template-columns: 1fr; } }
+.carte h3 { font-weight: 900; font-size: clamp(30px, 3.6vw, 42px); letter-spacing: -.03em; line-height: 1; }
+.carte h3 + p { margin: 10px 0 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.chips li { background: var(--cream); border-radius: 999px; padding: 8px 16px; font-weight: 700; font-size: 15px; display: flex; gap: 8px; align-items: baseline; }
+.chips li i { font-style: normal; font-weight: 500; opacity: .7; font-size: 13.5px; }
+.small-budget { margin-top: 20px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; font-weight: 700; }
+.tva { margin: 8px 0 0; font-size: 13.5px; opacity: .7; }
+.small-budget .s { font-family: var(--f-script); font-size: 34px; font-weight: 400; color: var(--red); line-height: 1; }
+
+/* ---------- confiance ---------- */
+.logos { display: flex; flex-wrap: wrap; gap: 14px 14px; }
+.logos li { list-style: none; border: 2px solid var(--ink); border-radius: 999px; padding: 10px 22px; font-weight: 900; font-size: clamp(16px, 1.8vw, 20px); letter-spacing: -.01em; }
+.logos { padding: 0; margin: 0; }
+.logos li:nth-child(3n+1) { background: var(--sand); }
+.logos li:nth-child(3n+2) { background: var(--sage); }
+.logos li:nth-child(3n) { background: var(--stripe); }
+
+/* ---------- contact ---------- */
+.contact-sec { background: repeating-linear-gradient(90deg, var(--stripe) 0 56px, var(--cream) 56px 112px); }
+.contact-card { background: var(--red); color: var(--cream); border-radius: var(--radius); padding: clamp(28px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 32px; align-items: end; position: relative; }
+@media (max-width: 860px) { .contact-card { grid-template-columns: 1fr; } }
+.contact-card h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(56px, 9vw, 120px); line-height: .92; text-transform: uppercase; }
+.contact-card .sub { font-family: var(--f-script); font-size: clamp(30px, 4vw, 44px); line-height: 1.1; margin-top: 10px; }
+.contact-list { display: grid; gap: 12px; font-weight: 700; font-size: 18px; }
+.contact-list a { display: flex; justify-content: space-between; gap: 12px; background: var(--cream); color: var(--ink); text-decoration: none; padding: 14px 20px; border-radius: 16px; word-break: break-all; }
+.contact-list a:hover { background: var(--lime); }
+.contact-list .mailrow { display: flex; gap: 10px; align-items: stretch; background: var(--cream); color: var(--ink); border-radius: 16px; padding: 8px 8px 8px 20px; justify-content: space-between; flex-wrap: wrap; }
+.contact-list .mailrow span { align-self: center; word-break: break-all; }
+.contact-list .mailrow .copy { font-size: 15px; padding: 8px 16px; }
+.contact-list span.loc { padding: 0 20px; opacity: .9; }
+footer { padding: 24px 0 40px; font-size: 14px; text-align: center; }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Navigation principale">
+  <div class="wrap">
+    <a class="brand" href="#top">Laura Rodrigues<span>.</span></a>
+    <ul>
+      <li><a href="#a-propos">à propos</a></li>
+      <li><a href="#expertises">expertises</a></li>
+      <li><a href="#realisations">réalisations</a></li>
+      <li><a href="#formules">formules</a></li>
+      <li><a class="cta" href="#contact">Me contacter</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <span class="folder f1" aria-hidden="true"></span>
+  <span class="folder f2" aria-hidden="true"></span>
+  <span class="folder f3" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div class="name">Laura<br>Rodrigues</div>
+        <div>Communication &amp; gestion de projet<br>pour structures à impact</div>
+        <div class="contact">
+          <a href="mailto:laura.rodgs00@gmail.com" style="text-decoration:none">laura.rodgs00@gmail.com</a>
+          <a class="btn-li" href="https://www.linkedin.com/in/laura-rodrigues0/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3v-11zm7 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.6 4.77 6v5.46h-4v-4.84c0-1.16-.02-2.64-1.6-2.64-1.62 0-1.86 1.26-1.86 2.56v4.92h-4v-11z"/></svg>Mon LinkedIn</a>
+          <span>Lyon · Paris · à distance</span>
+        </div>
+      </div>
+      <div class="hero-body">
+      <div>
+      <h1>portfolio.</h1>
+      <p class="pitch">Des projets de com <em>qui claquent</em>, sans le budget d'une agence.</p>
+      <p class="for">Pour les associations, fondations, projets à impact et petites entreprises engagées.</p>
+      </div>
+      <aside class="side" aria-label="En bref">
+        <div class="stamp" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#circ" textLength="272" lengthAdjust="spacing">FREELANCE ✦ OUVERTE AUX NOUVEAUX PROJETS ✦</textPath></text></svg><span>✦</span></div>
+        <a class="note n1" href="#expertises"><span>01</span>Gestion de projet &amp; événementiel</a>
+        <a class="note n2" href="#expertises"><span>02</span>Presse &amp; influence</a>
+        <a class="note n3" href="#expertises"><span>03</span>Communication digitale &amp; contenus</a>
+        <a class="note n4" href="#realisations">Voir mes réalisations →</a>
+      </aside>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="a-propos">
+  <div class="wrap">
+    <div class="st"><h2>à propos<b>.</b></h2><p>enchantée !</p></div>
+    <div class="about">
+      <figure class="polaroid">
+        <span class="clip" aria-hidden="true"></span>
+        <div class="ph"><img src="img/laura.jpg" alt="Portrait de Laura Rodrigues, souriante, au bord de la mer"></div>
+        <figcaption>Laura</figcaption>
+      </figure>
+      <div class="about-txt">
+        <div>
+          <h3>Mon parcours</h3>
+          <p>Après plusieurs années dans la communication sous tous ses angles, chez l'<b>annonceur</b> (<span class="co">Volkswagen</span>), en <b>agence</b> (<span class="co">White Mirror</span>), puis aujourd'hui en <b>association internationale</b> (<span class="co">Inspiring Girls</span>), entre grands événements corporate et actions au plus près du terrain, j'ai décidé de me lancer en freelance !</p>
+        </div>
+        <div>
+          <h3>Mon terrain de jeu</h3>
+          <p>J'aimerais particulièrement accompagner les petites structures, <b>associations, fondations, projets à impact</b>, qui n'ont pas toujours les moyens de faire appel à une agence, mais qui ont tout autant besoin d'une communication soignée.</p>
+        </div>
+        <div>
+          <h3>Comment je travaille</h3>
+          <p>En toute autonomie, avec des <b>tarifs adaptés aux petites structures</b>. Événement, relations presse, influence, réseaux sociaux, création de contenus ou tout autre projet : parlons-en, même pour un besoin ponctuel :)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertises" style="padding-top:0">
+  <div class="wrap">
+    <div class="st"><h2>expertises<b>.</b></h2><p>mobilisables séparément ou ensemble</p></div>
+    <div class="exp">
+      <article>
+        <span class="n">01</span>
+        <h3>Gestion de projet &amp; événementiel</h3>
+        <p>Cadrage, planification, coordination des parties prenantes : je pilote vos projets et événements avec la rigueur d'une cheffe de projet dédiée.</p>
+        <ul><li>Événements</li><li>Partenariats</li><li>Bénévoles</li><li>Prise de parole</li></ul>
+      </article>
+      <article>
+        <span class="n">02</span>
+        <h3>Presse &amp; influence</h3>
+        <p>Stratégie de visibilité et ciblage média : je gère la relation presse et influenceurs dans la durée, du premier contact à la contractualisation.</p>
+        <ul><li>Relations presse</li><li>Influenceurs</li><li>Analyse des retombées</li></ul>
+      </article>
+      <article>
+        <span class="n">03</span>
+        <h3>Communication digitale &amp; contenus</h3>
+        <p>Ligne éditoriale, production, publication : je structure et fais grandir votre présence digitale, de la stratégie à l'exécution.</p>
+        <ul><li>Stratégie de com</li><li>Réseaux sociaux</li><li>Photo &amp; vidéo</li><li>Reporting</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="realisations" style="padding-top:0">
+  <div class="wrap">
+    <div class="st"><h2>réalisations<b>.</b></h2><p>quelques actions récentes</p></div>
+
+    <article class="case">
+      <div>
+        <h3>projet &amp; événementiel.</h3>
+        <div class="meta"><span>Structure : Inspiring Girls France</span><span>Secteur : Association internationale</span><span>Depuis : septembre 2024</span></div>
+        <span class="tag">GESTION DE PROJET</span>
+      </div>
+      <div class="items">
+        <div class="item"><b>Pilotage d'un programme international d'interventions scolaires</b><p>Organisation et coordination d'interventions dans des établissements partout en France, en lien avec le réseau international Inspiring Girls (siège à Londres) et la co-présidence France.</p></div>
+        <div class="item"><b>Prise de parole devant un public corporate</b><p>Seule en charge de la présentation de la conférence annuelle BlackRock (édition 2024-2025), devant l'ensemble des équipes et le Président.</p></div>
+        <div class="item"><b>Développement de partenariats entreprises</b><p>Identification, prospection et gestion d'un portefeuille d'environ 7 entreprises partenaires (Renesas, SCOR, Cacharel, L'Oréal…), sur la base de valeurs communes.</p></div>
+        <div class="item"><b>Recrutement et coordination de bénévoles</b><p>Recherche, mobilisation et formation de modèles féminins inspirants ; animation d'un réseau de plus de 200 intervenantes bénévoles.</p></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div>
+        <h3>presse &amp; influence.</h3>
+        <div class="meta"><span>Structures : Volkswagen, agence White Mirror</span><span>Secteurs : Automobile, corporate, culture, institutionnel</span></div>
+        <span class="tag">RELATIONS PRESSE</span>
+      </div>
+      <div class="items">
+        <div class="item"><b>Stratégies de rayonnement médiatique</b><p>Conception et mise en œuvre de stratégies de visibilité presse pour des acteurs corporate, culturels et institutionnels (White Mirror).</p></div>
+        <div class="item"><b>Animation d'un réseau de journalistes &amp; influenceurs</b><p>Gestion des partenaires et relais d'opinion, avec coordination d'événements presse (Volkswagen).</p></div>
+        <div class="item"><b>Relations médias lors de lancements nationaux</b><p>Participation à la stratégie de communication et de relations médias pour des lancements produits et des événements institutionnels d'envergure nationale (Volkswagen).</p></div>
+        <div class="item"><b>Analyse des retombées</b><p>Suivi des retombées médiatiques et recommandations pour renforcer la visibilité et la notoriété des marques accompagnées.</p></div>
+      </div>
+    </article>
+
+    <article class="case digital">
+      <div class="d-txt">
+        <h3>digital &amp; contenus.</h3>
+        <div class="meta"><span>Structure : Inspiring Girls France</span><span>Canaux : Instagram, YouTube, TikTok, podcast</span></div>
+        <span class="tag">TOUCHE-À-TOUT DU CONTENU</span>
+        <div class="items">
+          <div class="item"><b>Instagram : de 841 à 1 345 followers</b><p>Ligne éditoriale, création des posts et des reels pour le compte d'Inspiring Girls France.</p></div>
+          <div class="item"><b>Interviews vidéo pour YouTube</b><p>Réalisation et montage d'interviews diffusées sur la chaîne YouTube de l'association.</p></div>
+          <div class="item"><b>Montages TikTok &amp; podcast</b><p>Montage de vidéos courtes pour TikTok et montage d'un podcast.</p></div>
+        </div>
+      </div>
+      <div class="phones">
+        <figure><img src="img/insta-avant.jpg" alt="Compte Instagram Inspiring Girls France avant : 841 followers"><figcaption>avant</figcaption></figure>
+        <figure><img src="img/insta-apres.jpg" alt="Compte Instagram Inspiring Girls France après : 1 345 followers"><figcaption>après</figcaption></figure>
+      </div>
+      <figure class="cal"><img src="img/calendrier.jpg" alt="Calendrier éditorial : les posts du mois de juillet 2026"><figcaption>calendrier éditorial</figcaption></figure>
+      <div class="cal-txt">
+        <div class="item"><b>Calendrier éditorial</b><p>Planification des publications du mois, pour garder un rythme régulier et des contenus variés.</p></div>
+        <div class="item"><b>De l'idée à la publication</b><p>Photo, écriture, tournage, montage, publication : je gère toute la chaîne.</p></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="stats" aria-labelledby="chiffres-t">
+  <div class="wrap">
+    <div class="st"><h2 id="chiffres-t">en chiffres<b>.</b></h2><p>des résultats concrets</p></div>
+    <div class="grid-stats">
+      <div><span class="k">Réseaux sociaux</span><strong>+60<small>%</small></strong><b>de followers sur Instagram</b><span>841 → 1 345 followers sur le compte d'Inspiring Girls France</span></div>
+      <div><span class="k">Visibilité</span><strong>3,3<small>K</small></strong><b>vues par mois</b><span>sur le compte Instagram d'Inspiring Girls France</span></div>
+      <div><span class="k">Réseau</span><strong>200<small>+</small></strong><b>bénévoles mobilisées</b><span>des femmes inspirantes recrutées, formées et coordonnées</span></div>
+      <div><span class="k">Partenariats</span><strong>7</strong><b>entreprises partenaires</b><span>L'Oréal, Cacharel, SCOR, Renesas…</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="formules">
+  <div class="wrap">
+    <div class="st"><h2>formules<b>.</b></h2><p>une base, puis à la carte</p></div>
+    <div class="offers">
+      <article class="offer">
+        <span class="lbl">Pour démarrer</span>
+        <h3>Diagnostic com</h3>
+        <p>Un regard extérieur sur votre communication actuelle, et un plan d'action clair.</p>
+        <ul><li>Audit de vos réseaux et supports</li><li>Analyse de ce qui marche (ou pas)</li><li>Recommandations prioritaires</li></ul>
+        <div class="price">à partir de <b>350 €</b></div>
+      </article>
+      <article class="offer hl">
+        <span class="badge">formule phare</span>
+        <span class="lbl">Tous les mois</span>
+        <h3>Pack réseaux sociaux</h3>
+        <p>Une présence régulière et soignée, sans y passer vos soirées.</p>
+        <ul><li>Ligne éditoriale et calendrier</li><li>Création et publication de 8 posts</li><li>Petit bilan mensuel</li></ul>
+        <div class="price">à partir de <b>450 € / mois</b></div>
+      </article>
+      <article class="offer">
+        <span class="lbl">Sur un projet</span>
+        <h3>Projet clé en main</h3>
+        <p>Un événement, un lancement, une campagne : je pilote de A à Z.</p>
+        <ul><li>Cadrage et rétroplanning</li><li>Coordination des prestataires et partenaires</li><li>Communication autour du projet</li></ul>
+        <div class="price">à partir de <b>900 €</b></div>
+      </article>
+    </div>
+
+    <div class="carte">
+      <div>
+        <h3>à la carte<span style="color:var(--red)">.</span></h3>
+        <p>À ajouter à une formule, ou seul pour un besoin ponctuel.</p>
+      </div>
+      <ul class="chips">
+        <li>Communiqué &amp; relations presse <i>300 €</i></li>
+        <li>Recherche d'influenceurs <i>250 €</i></li>
+        <li>Coordination le jour J <i>250 €</i></li>
+        <li>Shooting photo (demi-journée) <i>200 €</i></li>
+        <li>Interview ou vidéo montée <i>150 €</i></li>
+        <li>Reporting &amp; analyse <i>120 € / mois</i></li>
+        <li>Recherche de partenaires <i>400 €</i></li>
+        <li>Atelier pour votre équipe (demi-journée) <i>250 €</i></li>
+      </ul>
+    </div>
+    <p class="small-budget"><span class="s">petit budget ?</span> On en parle, on trouve une formule qui vous ressemble.</p>
+    <p class="tva">Tarifs indicatifs, ajustés après un premier échange. TVA non applicable, art. 293 B du CGI.</p>
+  </div>
+</section>
+
+<section id="confiance" style="padding-top:0">
+  <div class="wrap">
+    <div class="st"><h2>ils m'ont fait confiance<b>.</b></h2></div>
+    <ul class="logos">
+      <li>Inspiring Girls</li><li>Volkswagen</li><li>White Mirror</li><li>BlackRock</li><li>L'Oréal Paris</li><li>Cacharel</li><li>SCOR</li><li>Renesas</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="contact-sec">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>on bosse<br>ensemble ?</h2>
+        <p class="sub">et si la prochaine collaboration, c'était avec vous ?</p>
+      </div>
+      <div class="contact-list">
+        <div class="mailrow"><a href="mailto:laura.rodgs00@gmail.com" style="all:unset;cursor:pointer;align-self:center;word-break:break-all">laura.rodgs00@gmail.com</a><button class="copy" type="button" data-copy="laura.rodgs00@gmail.com">Copier l'adresse</button></div>
+        <a href="https://www.linkedin.com/in/laura-rodrigues0/" target="_blank" rel="noopener"><span>Me contacter sur LinkedIn</span><span aria-hidden="true">→</span></a>
+        <span class="loc">Lyon · Paris · à distance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>© 2026 Laura Rodrigues · Communication &amp; gestion de projet pour structures à impact</footer>
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  var label = b.textContent;
+  b.addEventListener('click', function () {
+    var done = function (ok) { b.textContent = ok ? 'Copié !' : 'Sélectionnez l’adresse'; b.classList.toggle('ok', ok); setTimeout(function () { b.textContent = label; b.classList.remove('ok'); }, 2000); };
+    try { navigator.clipboard.writeText(b.dataset.copy).then(function () { done(true); }, function () { done(false); }); } catch (e) { done(false); }
+  });
+});
+</script>
+</body>
+</html>
