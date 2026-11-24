@@ -134,7 +134,10 @@ section { padding: clamp(56px, 8vw, 100px) 0; }
 /* ---------- expertises ---------- */
 .exp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 @media (max-width: 900px) { .exp { grid-template-columns: 1fr; } }
-.exp article { border-radius: var(--radius); padding: 30px 28px 32px; display: flex; flex-direction: column; gap: 14px; }
+/* sous-grille : numéro, titre, texte et tags alignés d'une carte à l'autre */
+.exp article { border-radius: var(--radius); padding: 30px 28px 32px; display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 14px; align-content: start; }
+.exp article > * { align-self: start; }
+@supports not (grid-template-rows: subgrid) { .exp h3 { min-height: 2.2em; } }
 .exp article:nth-child(1) { background: var(--sand); }
 .exp article:nth-child(2) { background: var(--stripe); }
 .exp article:nth-child(3) { background: var(--sage); }
@@ -218,7 +221,7 @@ section { padding: clamp(56px, 8vw, 100px) 0; }
 .contact-sec { background: repeating-linear-gradient(90deg, var(--stripe) 0 56px, var(--cream) 56px 112px); }
 .contact-card { background: var(--red); color: var(--cream); border-radius: var(--radius); padding: clamp(28px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 32px; align-items: end; position: relative; }
 @media (max-width: 860px) { .contact-card { grid-template-columns: 1fr; } }
-.contact-card h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(52px, 7.6vw, 104px); line-height: .92; text-transform: uppercase; }
+.contact-card h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(56px, 9vw, 120px); line-height: .92; text-transform: uppercase; }
 .contact-card .sub { font-family: var(--f-script); font-size: clamp(30px, 4vw, 44px); line-height: 1.1; margin-top: 10px; }
 .contact-list { display: grid; gap: 12px; font-weight: 700; font-size: 18px; }
 .contact-list a { display: flex; justify-content: space-between; gap: 12px; background: var(--cream); color: var(--ink); text-decoration: none; padding: 14px 20px; border-radius: 16px; word-break: break-all; }
@@ -286,7 +289,7 @@ footer { padding: 24px 0 40px; font-size: 14px; text-align: center; }
     <div class="about">
       <figure class="polaroid">
         <span class="clip" aria-hidden="true"></span>
-        <div class="ph"><img src="laura.jpg" alt="Portrait de Laura Rodrigues, souriante, au bord de la mer"></div>
+        <div class="ph"><img src="img/laura.jpg" alt="Portrait de Laura Rodrigues, souriante, au bord de la mer"></div>
         <figcaption>Laura</figcaption>
       </figure>
       <div class="about-txt">
@@ -300,7 +303,7 @@ footer { padding: 24px 0 40px; font-size: 14px; text-align: center; }
         </div>
         <div>
           <h3>Comment je travaille</h3>
-          <p>En toute autonomie, avec des <b>tarifs adaptés aux petites structures</b>. Événement, relations presse, influence, réseaux sociaux, création de contenus ou tout autre projet : parlons-en, même pour un besoin ponctuel :)</p>
+          <p>En toute autonomie et sur mesure : <b>on construit le projet ensemble, selon vos besoins et votre budget</b>. Événement, relations presse, influence, réseaux sociaux, création de contenus ou tout autre projet : parlons-en, même pour un besoin ponctuel :)</p>
         </div>
       </div>
     </div>
@@ -319,7 +322,7 @@ footer { padding: 24px 0 40px; font-size: 14px; text-align: center; }
       </article>
       <article>
         <span class="n">02</span>
-        <h3>Presse &amp; influence</h3>
+        <h3>Presse &amp;<br>influence</h3>
         <p>Stratégie de visibilité et ciblage média : je gère la relation presse et influenceurs dans la durée, du premier contact à la contractualisation.</p>
         <ul><li>Relations presse</li><li>Influenceurs</li><li>Analyse des retombées</li></ul>
       </article>
@@ -377,10 +380,10 @@ footer { padding: 24px 0 40px; font-size: 14px; text-align: center; }
         </div>
       </div>
       <div class="phones">
-        <figure><img src="insta-avant.jpg" alt="Compte Instagram Inspiring Girls France avant : 841 followers"><figcaption>avant</figcaption></figure>
-        <figure><img src="insta-apres.jpg" alt="Compte Instagram Inspiring Girls France après : 1 345 followers"><figcaption>après</figcaption></figure>
+        <figure><img src="img/insta-avant.jpg" alt="Compte Instagram Inspiring Girls France avant : 841 followers"><figcaption>avant</figcaption></figure>
+        <figure><img src="img/insta-apres.jpg" alt="Compte Instagram Inspiring Girls France après : 1 345 followers"><figcaption>après</figcaption></figure>
       </div>
-      <figure class="cal"><img src="calendrier.jpg" alt="Calendrier éditorial : les posts du mois de juillet 2026"><figcaption>calendrier éditorial</figcaption></figure>
+      <figure class="cal"><img src="img/calendrier.jpg" alt="Calendrier éditorial : les posts du mois de juillet 2026"><figcaption>calendrier éditorial</figcaption></figure>
       <div class="cal-txt">
         <div class="item"><b>Calendrier éditorial</b><p>Planification des publications du mois, pour garder un rythme régulier et des contenus variés.</p></div>
         <div class="item"><b>De l'idée à la publication</b><p>Photo, écriture, tournage, montage, publication : je gère toute la chaîne.</p></div>
@@ -463,7 +466,7 @@ footer { padding: 24px 0 40px; font-size: 14px; text-align: center; }
   <div class="wrap">
     <div class="contact-card">
       <div>
-        <h2>on bosse<br><span style="white-space:nowrap">ensemble&nbsp;?</span></h2>
+        <h2>on bosse<br>ensemble ?</h2>
         <p class="sub">et si la prochaine collaboration, c'était avec vous ?</p>
       </div>
       <div class="contact-list">
